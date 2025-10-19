@@ -1,0 +1,236 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(216, 112, 147, 0.381);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-item {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.container {
+    width: calc(99dvw - 40px);
+    height: 99dvh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.container>div {
+    width: calc(99dvw - 40px);
+}
+
+.container-pot {
+    height: calc(99dvh - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+
+.container-input {
+    height: calc(10dvh - 30px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding-bottom: 10px;
+}
+
+.container-gallery {
+    height: calc(99dvh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btnflower {
+    width: 110px;
+    height: 110px;
+    border-radius: 5%;
+}
+
+.flower-option {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.flower-pot {
+    position: relative;
+    width: 200px;
+    height: 300px;
+}
+
+.pot {
+    position: absolute;
+    max-width: 100px;
+    max-height: 100px;
+    bottom: 0;
+    left: calc(100% / 2 - 50px);
+}
+
+.pot.front {
+    margin-top: 5px;
+    z-index: 2;
+}
+
+.pot.background {
+    z-index: 0;
+}
+
+.flower {
+    position: absolute;
+    z-index: 1;
+    max-width: 200px;
+    max-height: 300px;
+
+}
+.gallery {
+    height: calc(60dvh);
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+
+.pot-moved {
+    position: absolute; 
+    bottom: 30px;
+    right: 20px;
+    transform: scale(1.2);
+}
+
+ 
+.greeting-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8); 
+    opacity: 0;
+    padding: 30px;
+    background-color: #fff;
+    border: 5px solid #d87093; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 80%;
+    min-height: calc(80dvh - 100px);
+    z-index: -1; 
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+    font-family: 'Verdana', sans-serif;
+    border-radius: 10px;
+}
+
+.greeting-card h2 {
+    color: #d87093;
+    margin-top: 0;
+}
+
+.greeting-card p {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+#sender-name {
+    font-weight: bold;
+    color: #d87093;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .container {
+        margin: 20px 0 0 0;
+        max-height: calc(99dvh - 20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    .container>div {
+        margin-bottom: 10px;
+    }
+
+    .container-pot {
+        width: 99dvw - 20px;
+        height: calc(55dvh - 50px);
+    }
+
+    .container-gallery {
+        height: auto;
+    }
+
+    .text {
+        font-size: 13px;
+        padding: 0;
+        margin: 0;
+        font-family: Verdana, Tahoma, sans-serif;
+        text-align: center;
+    }
+
+    .container-input {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .btnflower {
+        width: 60px;
+        height: 60px;
+    }
+
+    .flower-option {
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .gallery {
+        max-width: calc(99dvw / 1.4);
+        height: auto;
+    }
+
+    .flower-pot {
+        width: 150px;
+        height: 225px;
+    }
+
+    .pot {
+        max-width: 75px;
+        max-height: 75px;
+        left: calc(100% / 2 - 37.5px);
+    }
+
+    .flower {
+        max-width: 150px;
+        max-height: 225px;
+    }
+
+
+    .pot-moved {
+        transform: scale(1.1); /* Thu nhỏ hơn nữa trên di động */
+        
+        margin: 0; /* Bỏ margin trên di động */
+    }
+
+    .greeting-card {
+        padding: 20px;
+        max-width: calc(99dvw - 100px);
+        min-height: calc(99dvh - 100px);
+        z-index: -1;
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bất ngờ 20/10</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-pot">
+
+            <div id="flower-pot" class="flower-pot">
+                <img id="flower" class="flower">
+
+                <div>
+                    <img class="pot background" src="./images/pot-background.png" alt="Bất ngờ 20/10">
+                    <img class="pot front" src="./images/pot-front.png" alt="Bất ngờ 20/10">
+                </div>
+            </div>
+        </div>
+        <div class="container-gallery">
+            <div class="text"> Chọn loại hoa </div>
+            <div class="center-item">
+                <div id="gallery-flower" class="gallery">
+                </div>
+            </div>
+            <div class="container-input">
+                <div class="text">Tên của bạn: </div>
+                <input type="text" id="name-input"> <button id="confirm-button">Xác nhận</button> </div>
+        </div>
+
+        <div id="greeting-card" class="greeting-card">
+            <h2 id="card-title">Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10!</h2>
+            <p>Chúc <span id="sender-name"></span> luôn xinh đẹp, hạnh phúc và thành công trong cuộc sống.</p>
+        </div>
+
+    </div>
+    <script>
+        const btnflower = document.getElementById("gallery-flower");
+        const flowers = [
+            { id: "2", src: "./images/002.png", top: "auto", left: "0px", rotate: "-9" },
+            { id: "3", src: "./images/003.png", top: "auto", left: "5px", rotate: "-9" },
+            { id: "4", src: "./images/004.png", top: "-10px", left: "auto", rotate: "-9" },
+            { id: "5", src: "./images/005.png", top: "15px", left: "-5px", rotate: "-4" },
+            { id: "6", src: "./images/006.png", top: "-15px", left: "15px", rotate: "-9" },
+            { id: "7", src: "./images/007.png", top: "-55px", left: "-10px", rotate: "-9" },
+            { id: "8", src: "./images/008.png", top: "auto", left: "-1px", rotate: "0" },
+            { id: "9", src: "./images/009.png", top: "-20px", left: "auto", rotate: "9" },
+            { id: "10", src: "./images/010.png", top: "-65px", left: "15px", rotate: "-9" },
+            { id: "11", src: "./images/011.png", top: "-30px", left: "20px", rotate: "-9" },
+            { id: "12", src: "./images/012.png", top: "-55px", left: "10px", rotate: "7" },
+            { id: "13", src: "./images/013.png", top: "-30px", left: "35px", rotate: "-9" },
+        ];
+
+        flowers.forEach(flower => {
+            const button = document.createElement("button");
+            const img = document.createElement("img");
+            img.src = flower.src;
+            img.alt = "Bất ngờ 20/10";
+            img.className = "flower-option";
+            button.appendChild(img);
+            button.className = "btnflower";
+            btnflower.appendChild(button);
+        });
+
+        btnflower.addEventListener("click", (event) => {
+            const clickedElement = event.target;
+            if (clickedElement.tagName === "IMG") {
+                const flowerImage = document.getElementById("flower");
+
+                // Tìm đúng đối tượng trong mảng dựa theo tên file
+                const flowerData = flowers.find(f => clickedElement.src.includes(f.src.split("/").pop()));
+
+                if (flowerData) {
+                    flowerImage.src = flowerData.src;
+                    flowerImage.style.transform = `rotate(${flowerData.rotate}deg)`;
+                    flowerImage.style.top = flowerData.top;
+                    flowerImage.style.left = flowerData.left;
+                    flowerImage.style.position = "absolute"; // đảm bảo có thể định vị
+                }
+            }
+        });
+
+        // Xử lý sự kiện khi nhấn nút Xác nhận
+        const confirmButton = document.getElementById("confirm-button");
+        const nameInput = document.getElementById("name-input");
+        const containerPot = document.querySelector(".flower-pot");
+        const greetingCard = document.getElementById("greeting-card");
+        const senderName = document.getElementById("sender-name");
+        const containerGallery = document.querySelector(".container-gallery"); // Thêm để ẩn gallery
+
+        confirmButton.addEventListener("click", () => {
+            const name = nameInput.value.trim();
+            if (name) {
+                // 1. Cập nhật tên người gửi và ẩn phần gallery
+                senderName.textContent = name;
+                containerGallery.style.display = 'none';
+
+                // 2. Di chuyển bình hoa xuống góc phải (thêm class để kích hoạt CSS transition)
+                containerPot.classList.add("pot-moved");
+
+                // 3. Hiện thiệp chúc mừng sau một khoảng thời gian ngắn
+                // Sử dụng setTimeout để đảm bảo chuyển động của bình hoa có thời gian bắt đầu
+                setTimeout(() => {
+                    greetingCard.style.opacity = '1';
+                    greetingCard.style.transform = 'translate(-50%, -50%) scale(1)';
+                }, 200); // 100ms sau khi kích hoạt chuyển động
+            } else {
+                alert("Vui lòng nhập tên của bạn!");
+            }
+        });
+    </script>
+</body>
+
+</html>
