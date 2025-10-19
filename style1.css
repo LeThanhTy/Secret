@@ -222,7 +222,7 @@ body {
 
 
     .pot-moved {
-        transform: scale(1.1); /* Thu nhỏ hơn nữa trên di động */
+        transform: scale(0.9); /* Thu nhỏ hơn nữa trên di động */
         
         margin: 0; /* Bỏ margin trên di động */
     }
@@ -235,3 +235,4 @@ body {
     }
 
 }
+
