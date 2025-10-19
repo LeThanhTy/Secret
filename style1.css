@@ -156,7 +156,7 @@ body {
 
     .container {
         margin: 20px 0 0 0;
-        max-height: calc(99dvh - 20px);
+        max-height: calc(90dvh - 20px);
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -230,7 +230,8 @@ body {
     .greeting-card {
         padding: 20px;
         max-width: calc(99dvw - 100px);
-        min-height: calc(99dvh - 100px);
+        min-height: calc(90dvh - 100px);
         z-index: -1;
     }
+
 }
