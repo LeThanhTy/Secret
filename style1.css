@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-    width: calc(99dvw - 40px);
+    width: calc(99dvw - 20px);
     height: 99dvh;
     display: flex;
     flex-direction: row;
@@ -23,11 +23,11 @@ body {
 }
 
 .container>div {
-    width: calc(99dvw - 40px);
+    width: calc(99dvw - 20px);
 }
 
 .container-pot {
-    height: calc(99dvh - 50px);
+    height: calc(99dvh - 30px);
     display: flex;
     justify-content: center;
     align-items: end;
@@ -156,7 +156,7 @@ body {
 
     .container {
         margin: 20px 0 0 0;
-        max-height: calc(100dvh - 20px);
+        max-height: calc(100dvh - 10px);
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -222,7 +222,7 @@ body {
 
 
     .pot-moved {
-        transform: scale(0.9); /* Thu nhỏ hơn nữa trên di động */
+        transform: scale(0.8); /* Thu nhỏ hơn nữa trên di động */
         
         margin: 0; /* Bỏ margin trên di động */
     }
@@ -235,5 +235,3 @@ body {
     }
 
 }
-
-
